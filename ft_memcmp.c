@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgutierr <rgutierr@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 15:45:01 by rgutierr          #+#    #+#             */
-/*   Updated: 2023/03/09 21:15:39 by rgutierr         ###   ########.fr       */
+/*   Created: 2023/03/09 17:50:18 by rgutierr          #+#    #+#             */
+/*   Updated: 2023/03/09 21:45:34 by rgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+int	ft_memcmp(const void *dst, const void *str, size_t n)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
-}
-/*
-#include<unistd.h>
-int main (void)
-{
-    int result;
+	unsigned char	*str2;
+	unsigned char	*dst2;
 
-    result = ft_isdigit(22);
-    if (result == 1)
-        write ( 1, "1", 1);
-else
-        write (1, "0", 1);
-    return (0);
-}*/
+	dst2 = (unsigned char *)dst;
+	str2 = (unsigned char *)str;
+	if (n)
+		while (n--)
+			if (*dst2++ != *str2++)
+				return (*(--dst2) - *(--str2));
+	return (0);
+}

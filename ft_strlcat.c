@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgutierr <rgutierr@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 15:45:01 by rgutierr          #+#    #+#             */
-/*   Updated: 2023/03/09 21:15:39 by rgutierr         ###   ########.fr       */
+/*   Created: 2023/03/09 17:47:29 by rgutierr          #+#    #+#             */
+/*   Updated: 2023/03/09 21:11:38 by rgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
-}
-/*
-#include<unistd.h>
-int main (void)
-{
-    int result;
+	size_t	x;
+	size_t	y;
+	size_t	len;
 
-    result = ft_isdigit(22);
-    if (result == 1)
-        write ( 1, "1", 1);
-else
-        write (1, "0", 1);
-    return (0);
-}*/
+	x = 0;
+	y = 0;
+	while (dst[x] != '\0')
+	{
+		x++;
+	}
+	len = x;
+	if (dstsize <= len)
+	{
+		return (dstsize + ft_strlen(src));
+	}
+	while (src[y] != '\0' && x < dstsize - 1)
+	{
+		dst[x] = src[y];
+		x++;
+		y++;
+	}
+	dst[x] = '\0';
+	return (len + ft_strlen(src));
+}

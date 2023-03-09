@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   06ft_strlen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgutierr <rgutierr@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 15:45:01 by rgutierr          #+#    #+#             */
-/*   Updated: 2023/03/09 21:15:39 by rgutierr         ###   ########.fr       */
+/*   Created: 2022/11/15 19:11:36 by rgutierr          #+#    #+#             */
+/*   Updated: 2023/03/09 21:18:44 by rgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+int	ft_strlen(char *str)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }
 /*
-#include<unistd.h>
-int main (void)
-{
-    int result;
+#include <stdio.h>
 
-    result = ft_isdigit(22);
-    if (result == 1)
-        write ( 1, "1", 1);
-else
-        write (1, "0", 1);
-    return (0);
+int	main(void)
+{
+	int	string;
+
+	string = ft_strlen("feliz año!");
+	printf("%d", string);
+	return (0);
 }*/

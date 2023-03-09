@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgutierr <rgutierr@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 15:45:01 by rgutierr          #+#    #+#             */
-/*   Updated: 2023/03/09 21:15:39 by rgutierr         ###   ########.fr       */
+/*   Created: 2023/03/09 17:51:20 by rgutierr          #+#    #+#             */
+/*   Updated: 2023/03/09 22:19:00 by rgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+int	ft_atoi(const char *str)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
-}
-/*
-#include<unistd.h>
-int main (void)
-{
-    int result;
+	int	result;
+	int	sign;
+	int	i;
 
-    result = ft_isdigit(22);
-    if (result == 1)
-        write ( 1, "1", 1);
-else
-        write (1, "0", 1);
-    return (0);
-}*/
+	result = 0;
+	sign = 1;
+	i = 0;
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
+		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
+			++i;
+	if (str[i] == '-')
+	{
+		sign = -1;
+			++i;
+	}
+	else if (str[i] == '+')
+			++i;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + (str[i] - '0');
+		++i;
+	}
+	return (result * sign);
+}

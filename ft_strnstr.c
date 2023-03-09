@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgutierr <rgutierr@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 15:45:01 by rgutierr          #+#    #+#             */
-/*   Updated: 2023/03/09 21:15:39 by rgutierr         ###   ########.fr       */
+/*   Created: 2023/03/09 17:50:53 by rgutierr          #+#    #+#             */
+/*   Updated: 2023/03/09 22:10:38 by rgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
-}
-/*
-#include<unistd.h>
-int main (void)
-{
-    int result;
+	size_t	needle_len;
+	char	*match;
 
-    result = ft_isdigit(22);
-    if (result == 1)
-        write ( 1, "1", 1);
-else
-        write (1, "0", 1);
-    return (0);
-}*/
+	if (*needle == '\0')
+		return ((char *)haystack);
+	needle_len = ft_strlen(needle);
+	while (*haystack && len >= needle_len)
+	{
+		if (ft_strncmp(haystack, needle, needle_len) == 0)
+		{
+			match = (char *)haystack;
+			return (match);
+		}
+		haystack++;
+		len--;
+	}
+	return (NULL);
+}

@@ -1,0 +1,48 @@
+
+• isalpha X 
+• isdigit X
+• isalnum X
+• isascii X
+• isprint BIEN
+• strlen BIEN
+• memset BIEN
+• bzero BIEN
+• memcpy BIEN
+• memmove BIEN
+• strlcpy BIEN
+• strlcat BIEN
+• toupper BIEN
+• tolower BIEN
+• strchr BIEN
+• strrchr BIEN
+• strncmp BIEN
+• memchr BIEN
+• memcmp BIEN
+• strnstr BIEN
+• atoi BIEN
+
+
+**************
+
+• calloc 
+• strdup
+
+
+**************
+
+• ft_substr
+• ft_strjoin
+• ft_strtrim
+• ft_split
+• ft_itoa
+• ft_strmapi
+• ft_striteri
+• ft_putchar_fd
+• ft_putstr_fd
+• ft_putendl_fd
+• ft_putnbr_fd
+
+
+*****bonus******
+
+• 

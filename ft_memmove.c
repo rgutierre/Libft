@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgutierr <rgutierr@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 15:45:01 by rgutierr          #+#    #+#             */
-/*   Updated: 2023/03/09 21:15:39 by rgutierr         ###   ########.fr       */
+/*   Created: 2023/03/09 17:46:40 by rgutierr          #+#    #+#             */
+/*   Updated: 2023/03/09 21:12:29 by rgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
-}
-/*
-#include<unistd.h>
-int main (void)
-{
-    int result;
+	unsigned char	*a_src;
+	unsigned char	*b_dst;
 
-    result = ft_isdigit(22);
-    if (result == 1)
-        write ( 1, "1", 1);
-else
-        write (1, "0", 1);
-    return (0);
-}*/
+	if (!dst && !src)
+		return (NULL);
+	a_src = (unsigned char *)src;
+	b_dst = (unsigned char *)dst;
+	if (len == 0 || b_dst == a_src)
+		return (dst);
+	if (b_dst > a_src)
+	{
+		a_src += len - 1;
+		b_dst += len - 1;
+		while (len--)
+			*b_dst-- = *a_src--;
+	}
+	else
+		ft_memcpy(dst, src, len);
+	return (dst);
+}
